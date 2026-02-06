@@ -187,9 +187,10 @@ tmoe还会安装gnome-keyring，由于之前我做xfce包时会造成VSCode反�
   - sudo apt update, sudo apt full-upgrade, sudo apt autoremove
   - 取消内存分配器的更改
   - xfce版本重新修补了libtiff.so.5库
-- 升级到GXDE 25：
+- 升级到GXDE 25（gxde，v1.1.0）：
   - 更换内存分配器
   - 使用AI重写的升级脚本(gxde-25-upgrade.sh)，以便在不启动图形界面的情况下升级
+- 禁用电源管理（lxqt，v1.1.0）：`mkdir -p ~/.config/autostart;cp /etc/xdg/autostart/lxqt-powermanagement.desktop ~/.config/autostart/;echo "Hidden=true" >> ~/.config/autostart/lxqt-powermanagement.desktop`
 - 禁用MIT-SHM扩展（v1.1.0）：/usr/local/bin/startvnc第372行添加set "${a}" "-extension" "MIT-SHM"
 - 将桌面壁纸的配置从monitorBuiltinDisplay改为monitorbuiltin（xfce，v1.0.99），疑似Termux:X11显示器名称改变导致壁纸失效
 - 修复用vscode打开文件时只打开了vscode本身（v1.0.25）：去掉/usr/share/applications/code-no-sandbox.desktop的Exec的--unity-launch

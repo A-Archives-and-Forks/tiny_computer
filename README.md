@@ -5,7 +5,7 @@
 给所有安卓 9 以上 arm64 设备的“PC 应用引擎”平替。你可以在小小电脑上安装 PC 级 WPS、CAJ Viewer、亿图图示等软件。
 
 
-Run Debian Bookworm with XFCE, LXQt, or other desktop environments on Android—just with one click. Originally developed for Chinese users to run applications like WPS Office, it comes preinstalled with tools such as the Fcitx Pinyin input method. Please note that this app does not require Termux.
+Run Debian Trixie with XFCE, LXQt, or other desktop environments on Android—just with one click. Originally developed for Chinese users to run applications like WPS Office, it comes preinstalled with tools such as the Fcitx Pinyin input method. Please note that this app does not require Termux.
 
 To change the language inside the container, simply run the `tmoe` command, select “Manager” and navigate to the locale settings. The root filesystem was built using [tmoe](https://github.com/2moe/tmoe), so locale configuration is handled through it. You will also need to update the `LANG=zh_CN.UTF-8` environment variable in the startup command (go to Control → Advanced Settings → Startup Command) when switching to another language.
 
