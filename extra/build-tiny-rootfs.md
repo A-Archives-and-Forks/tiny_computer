@@ -181,6 +181,16 @@ tmoe还会安装gnome-keyring，由于之前我做xfce包时会造成VSCode反�
 
 ### 额外步骤
 
+- 升级到Debian 13（xfce, lxqt，v1.1.0）：
+  - 更换内存分配器（[原因](https://github.com/termux/proot/issues/313)。不过截至目前这个bug可能已经被修了，虽然issue没关）安装libtcmalloc-minimal4包，并设置库/usr/lib/aarch64-linux-gnu/libtcmalloc_minimal.so.4到/etc/ld.so.preload
+  - 把/etc/apt/source.list的bookworm改为trixie
+  - sudo apt update, sudo apt full-upgrade, sudo apt autoremove
+  - 取消内存分配器的更改
+  - xfce版本重新修补了libtiff.so.5库
+- 升级到GXDE 25：
+  - 更换内存分配器
+  - 使用AI重写的升级脚本(gxde-25-upgrade.sh)，以便在不启动图形界面的情况下升级
+- 禁用MIT-SHM扩展（v1.1.0）：/usr/local/bin/startvnc第372行添加set "${a}" "-extension" "MIT-SHM"
 - 将桌面壁纸的配置从monitorBuiltinDisplay改为monitorbuiltin（xfce，v1.0.99），疑似Termux:X11显示器名称改变导致壁纸失效
 - 修复用vscode打开文件时只打开了vscode本身（v1.0.25）：去掉/usr/share/applications/code-no-sandbox.desktop的Exec的--unity-launch
 - 修复选择文本时会把文本发送到剪切板（v1.0.25）：在/usr/local/bin/startvnc文件的start_tmoe_xvnc()的start_win10_tigervnc行前面加入`vncconfig -set SendPrimary=0 SetPrimary=0`
